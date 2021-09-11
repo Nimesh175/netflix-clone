@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from "./axios";
-import requests from './requests';
 import './Banner.css';
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
-function Banner() {
+function Banner({fetchUrl}) {
      const [movies, setMovies] = useState([]);
 
      useEffect(() => {
           async function fetchData() {
-               const request = await axios.get(requests.fetchNetflixOriginals);
-               setMovies(request.data.results[
-                   Math.floor( Math.random() * request.data.results.length - 1)])
-
+                await axios.get(fetchUrl)
+                    .then(res => {
+                         setMovies(res.data.results[
+                              Math.floor( Math.random() * res.data.results.length - 1)])
+                    });
+          
           }
-          fetchData();
-     }, []);
+          fetchUrl && fetchData();
+     }, [fetchUrl]);
 
 
      function truncate(str, n) {
@@ -46,6 +47,8 @@ function Banner() {
                          {truncate(movies?.overview, 150)}
                     </h1>
                </div>
+
+               <div className="banner__fadeBottom" />
           </header>
      )
 }

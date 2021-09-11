@@ -7,7 +7,7 @@ import Banner from './Banner';
 function App() {
   return (
     <div className="app">
-      <Banner />
+      <Banner fetchUrl={requests.fetchNetflixOriginals} />
       
 
       <Row
