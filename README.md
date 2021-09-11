@@ -2,7 +2,10 @@
 
 
 
-This Netflix clone built in React for learning purposes.
+This Netflix clone built in React for learning purposes.<br/>
+
+Hosting URL: https://netflix-clone-5b354.web.app
+
 
 
 ![imagename](https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg)
