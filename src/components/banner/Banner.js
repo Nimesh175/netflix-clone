@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from "./axios";
+import axios from "../../configurations/axios";
 import './Banner.css';
 
 const base_url = "https://image.tmdb.org/t/p/original/";
@@ -14,7 +14,7 @@ function Banner({fetchUrl}) {
                          setMovies(res.data.results[
                               Math.floor( Math.random() * res.data.results.length - 1)])
                     });
-          
+
           }
           fetchUrl && fetchData();
      }, [fetchUrl]);
@@ -37,7 +37,7 @@ function Banner({fetchUrl}) {
                     <h1 className="banner__title">
                          {movies?.title || movies?.name || movies?.original_name}
                     </h1>
-                    
+
                     <div className="banner__buttons">
                          <button className="banner_button">Play</button>
                          <button className="banner_button">My List</button>
